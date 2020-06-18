@@ -79,6 +79,7 @@ namespace QLNhaSach
             frmDangNhap f = new frmDangNhap();
             f.MdiParent = this;
             f.StartPosition = FormStartPosition.CenterScreen;
+            //f.ShowDialog();
             f.Show();
             f.WindowState = FormWindowState.Normal;
             //tabControl1.Hide();
@@ -96,11 +97,18 @@ namespace QLNhaSach
 
         private void btnDoiMK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-          //  if(fDoiMatKhau==null)
-          //  {
-           //     fDoiMatKhau = new frmDoiMatKhau();
-          //      fDoiMatKhau
-          //  }
+            if(frmDoiMatKhau==null)
+            {
+                frmDoiMatKhau = new frmDoiMatKhau();
+                frmDoiMatKhau.MdiParent = this;
+                frmDoiMatKhau.WindowState = FormWindowState.Maximized;
+                frmDoiMatKhau.Show();
+            }
+            else
+            {
+                frmDoiMatKhau.Activate();
+                frmDoiMatKhau.Show();
+            }
         }
     }
 }

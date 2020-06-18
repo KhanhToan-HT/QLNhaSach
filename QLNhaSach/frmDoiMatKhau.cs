@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLNhaSach.Modules;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,15 @@ namespace QLNhaSach
                 return;
             }
             frmMain f = (frmMain)this.MdiParent;
+            int count = XLBANG.Thuc_hien_lenh("Update NHANVIEN set Password='" + txtPassNew.Text + "' where MaNV='" + f.maNV+"'");
+            if(count>0)
+            {
+                MessageBox.Show("Cập nhật thành công");
+            }
+            else
+            {
+                MessageBox.Show("Mật khẩu không hợp lệ");
+            }
         }
 
         private void sbtnCancel_Click(object sender, EventArgs e)
