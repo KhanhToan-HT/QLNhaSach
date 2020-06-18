@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sbtnDangNhap = new DevExpress.XtraEditors.SimpleButton();
-            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.sbtnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
@@ -59,50 +59,54 @@
             // 
             // sbtnDangNhap
             // 
-            this.sbtnDangNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.sbtnDangNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnDangNhap.ImageOptions.Image")));
             this.sbtnDangNhap.Location = new System.Drawing.Point(94, 140);
             this.sbtnDangNhap.Name = "sbtnDangNhap";
             this.sbtnDangNhap.Size = new System.Drawing.Size(100, 37);
             this.sbtnDangNhap.TabIndex = 1;
             this.sbtnDangNhap.Text = "Đăng Nhập";
+            this.sbtnDangNhap.Click += new System.EventHandler(this.sbtnDangNhap_Click);
             // 
-            // txtTenDangNhap
+            // txtUserName
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(205, 41);
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(174, 20);
-            this.txtTenDangNhap.TabIndex = 2;
+            this.txtUserName.Location = new System.Drawing.Point(205, 41);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(174, 20);
+            this.txtUserName.TabIndex = 2;
             // 
-            // txtMatKhau
+            // txtPassword
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(204, 92);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(175, 20);
-            this.txtMatKhau.TabIndex = 2;
+            this.txtPassword.Location = new System.Drawing.Point(204, 92);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(175, 20);
+            this.txtPassword.TabIndex = 2;
             // 
             // sbtnThoat
             // 
-            this.sbtnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
+            this.sbtnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnThoat.ImageOptions.Image")));
             this.sbtnThoat.Location = new System.Drawing.Point(231, 140);
             this.sbtnThoat.Name = "sbtnThoat";
             this.sbtnThoat.Size = new System.Drawing.Size(100, 37);
             this.sbtnThoat.TabIndex = 1;
             this.sbtnThoat.Text = "Thoát";
+            this.sbtnThoat.Click += new System.EventHandler(this.sbtnThoat_Click);
             // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 235);
-            this.Controls.Add(this.txtMatKhau);
-            this.Controls.Add(this.txtTenDangNhap);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.sbtnThoat);
             this.Controls.Add(this.sbtnDangNhap);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "frmDangNhap";
             this.Text = "Đăng Nhập";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Enter += new System.EventHandler(this.frmDangNhap_Enter);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmDangNhap_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,8 +117,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.SimpleButton sbtnDangNhap;
-        private System.Windows.Forms.TextBox txtTenDangNhap;
-        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtPassword;
         private DevExpress.XtraEditors.SimpleButton sbtnThoat;
     }
 }

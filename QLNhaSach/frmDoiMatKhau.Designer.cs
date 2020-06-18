@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoiMatKhau));
             this.label2 = new System.Windows.Forms.Label();
             this.lable1 = new System.Windows.Forms.Label();
-            this.txtNhapMatKhauMoi = new System.Windows.Forms.TextBox();
-            this.txtNhapLaiMatKhau = new System.Windows.Forms.TextBox();
+            this.txtPassNew = new System.Windows.Forms.TextBox();
+            this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.sbtnCapNhat = new DevExpress.XtraEditors.SimpleButton();
-            this.sbtnKhong = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -57,51 +61,65 @@
             this.lable1.TabIndex = 0;
             this.lable1.Text = "Nhập mật khẩu mới:";
             // 
-            // txtNhapMatKhauMoi
+            // txtPassNew
             // 
-            this.txtNhapMatKhauMoi.Location = new System.Drawing.Point(185, 37);
-            this.txtNhapMatKhauMoi.Name = "txtNhapMatKhauMoi";
-            this.txtNhapMatKhauMoi.Size = new System.Drawing.Size(174, 20);
-            this.txtNhapMatKhauMoi.TabIndex = 1;
+            this.txtPassNew.Location = new System.Drawing.Point(185, 37);
+            this.txtPassNew.Name = "txtPassNew";
+            this.txtPassNew.Size = new System.Drawing.Size(174, 20);
+            this.txtPassNew.TabIndex = 1;
             // 
-            // txtNhapLaiMatKhau
+            // txtConfirmPass
             // 
-            this.txtNhapLaiMatKhau.Location = new System.Drawing.Point(185, 75);
-            this.txtNhapLaiMatKhau.Name = "txtNhapLaiMatKhau";
-            this.txtNhapLaiMatKhau.Size = new System.Drawing.Size(174, 20);
-            this.txtNhapLaiMatKhau.TabIndex = 1;
+            this.txtConfirmPass.Location = new System.Drawing.Point(185, 75);
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.Size = new System.Drawing.Size(174, 20);
+            this.txtConfirmPass.TabIndex = 1;
             // 
             // sbtnCapNhat
             // 
-            this.sbtnCapNhat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.sbtnCapNhat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnCapNhat.ImageOptions.Image")));
             this.sbtnCapNhat.Location = new System.Drawing.Point(95, 122);
             this.sbtnCapNhat.Name = "sbtnCapNhat";
             this.sbtnCapNhat.Size = new System.Drawing.Size(93, 39);
             this.sbtnCapNhat.TabIndex = 2;
             this.sbtnCapNhat.Text = "Cập Nhật";
+            this.sbtnCapNhat.Click += new System.EventHandler(this.sbtnCapNhat_Click);
             // 
-            // sbtnKhong
+            // sbtnCancel
             // 
-            this.sbtnKhong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.sbtnKhong.Location = new System.Drawing.Point(214, 122);
-            this.sbtnKhong.Name = "sbtnKhong";
-            this.sbtnKhong.Size = new System.Drawing.Size(93, 39);
-            this.sbtnKhong.TabIndex = 2;
-            this.sbtnKhong.Text = "Không";
+            this.sbtnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnKhong.ImageOptions.Image")));
+            this.sbtnCancel.Location = new System.Drawing.Point(214, 122);
+            this.sbtnCancel.Name = "sbtnCancel";
+            this.sbtnCancel.Size = new System.Drawing.Size(93, 39);
+            this.sbtnCancel.TabIndex = 2;
+            this.sbtnCancel.Text = "Không";
+            this.sbtnCancel.Click += new System.EventHandler(this.sbtnCancel_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
             // frmDoiMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 212);
-            this.Controls.Add(this.sbtnKhong);
+            this.Controls.Add(this.sbtnCancel);
             this.Controls.Add(this.sbtnCapNhat);
-            this.Controls.Add(this.txtNhapLaiMatKhau);
-            this.Controls.Add(this.txtNhapMatKhauMoi);
+            this.Controls.Add(this.txtConfirmPass);
+            this.Controls.Add(this.txtPassNew);
             this.Controls.Add(this.lable1);
             this.Controls.Add(this.label2);
             this.Name = "frmDoiMatKhau";
             this.Text = "Đổi Mật Khẩu";
+            this.Load += new System.EventHandler(this.frmDoiMatKhau_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,9 +129,11 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lable1;
-        private System.Windows.Forms.TextBox txtNhapMatKhauMoi;
-        private System.Windows.Forms.TextBox txtNhapLaiMatKhau;
+        private System.Windows.Forms.TextBox txtPassNew;
+        private System.Windows.Forms.TextBox txtConfirmPass;
         private DevExpress.XtraEditors.SimpleButton sbtnCapNhat;
-        private DevExpress.XtraEditors.SimpleButton sbtnKhong;
+        private DevExpress.XtraEditors.SimpleButton sbtnCancel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
     }
 }
