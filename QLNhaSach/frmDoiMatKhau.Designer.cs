@@ -34,7 +34,7 @@
             this.lable1 = new System.Windows.Forms.Label();
             this.txtPassNew = new System.Windows.Forms.TextBox();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
-            this.sbtnCapNhat = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCapNhat = new DevExpress.XtraEditors.SimpleButton();
             this.sbtnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
@@ -75,25 +75,25 @@
             this.txtConfirmPass.Size = new System.Drawing.Size(174, 20);
             this.txtConfirmPass.TabIndex = 1;
             // 
-            // sbtnCapNhat
+            // btnCapNhat
             // 
-            this.sbtnCapNhat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnCapNhat.ImageOptions.Image")));
-            this.sbtnCapNhat.Location = new System.Drawing.Point(95, 122);
-            this.sbtnCapNhat.Name = "sbtnCapNhat";
-            this.sbtnCapNhat.Size = new System.Drawing.Size(93, 39);
-            this.sbtnCapNhat.TabIndex = 2;
-            this.sbtnCapNhat.Text = "Cập Nhật";
-            this.sbtnCapNhat.Click += new System.EventHandler(this.sbtnCapNhat_Click);
+            this.btnCapNhat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCapNhat.ImageOptions.Image")));
+            this.btnCapNhat.Location = new System.Drawing.Point(95, 122);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(93, 39);
+            this.btnCapNhat.TabIndex = 2;
+            this.btnCapNhat.Text = "Cập Nhật";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // sbtnCancel
             // 
-            this.sbtnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnKhong.ImageOptions.Image")));
+            this.sbtnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnCancel.ImageOptions.Image")));
             this.sbtnCancel.Location = new System.Drawing.Point(214, 122);
             this.sbtnCancel.Name = "sbtnCancel";
             this.sbtnCancel.Size = new System.Drawing.Size(93, 39);
             this.sbtnCancel.TabIndex = 2;
             this.sbtnCancel.Text = "Không";
-            this.sbtnCancel.Click += new System.EventHandler(this.sbtnCancel_Click);
+            this.sbtnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // errorProvider1
             // 
@@ -111,14 +111,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 212);
             this.Controls.Add(this.sbtnCancel);
-            this.Controls.Add(this.sbtnCapNhat);
+            this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.txtConfirmPass);
             this.Controls.Add(this.txtPassNew);
             this.Controls.Add(this.lable1);
             this.Controls.Add(this.label2);
             this.Name = "frmDoiMatKhau";
             this.Text = "Đổi Mật Khẩu";
-            this.Load += new System.EventHandler(this.frmDoiMatKhau_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -131,7 +130,7 @@
         private System.Windows.Forms.Label lable1;
         private System.Windows.Forms.TextBox txtPassNew;
         private System.Windows.Forms.TextBox txtConfirmPass;
-        private DevExpress.XtraEditors.SimpleButton sbtnCapNhat;
+        private DevExpress.XtraEditors.SimpleButton btnCapNhat;
         private DevExpress.XtraEditors.SimpleButton sbtnCancel;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.DirectoryServices.DirectorySearcher directorySearcher1;

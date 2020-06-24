@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Utils.Extensions;
 using QLNhaSach.Modules;
 
 namespace QLNhaSach
@@ -18,7 +19,6 @@ namespace QLNhaSach
             InitializeComponent();
         }
         public string maNV;
-        frmDoiMatKhau frmDoiMatKhau;
         public void enableControl(int maLTK)
         {
             switch(maLTK)
@@ -76,38 +76,38 @@ namespace QLNhaSach
         private void frmMain_Load(object sender, EventArgs e)
         {
             enableControl(-1);
-            frmDangNhap f = new frmDangNhap();
-            f.MdiParent = this;
+            frmDangNhap f = new frmDangNhap(this);
             f.StartPosition = FormStartPosition.CenterScreen;
-            //f.ShowDialog();
-            f.Show();
+            //f.Show();
             f.WindowState = FormWindowState.Normal;
+            f.ShowDialog();
             //tabControl1.Hide();
         }
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //xu lý tất cả cac form con
-            foreach (Form f in this.MdiChildren)
-            {
-                f.Close();
-            }
+            tabControlMain.TabPages.Clear();
             frmMain_Load(sender, e);
         }
 
         private void btnDoiMK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(frmDoiMatKhau==null)
-            {
-                frmDoiMatKhau = new frmDoiMatKhau();
-                frmDoiMatKhau.MdiParent = this;
-                frmDoiMatKhau.WindowState = FormWindowState.Maximized;
-                frmDoiMatKhau.Show();
-            }
+            int index = tabControlMain.TabPages.IndexOfKey("tabPageDoiMatKhau");
+            if (index > 0)
+                tabControlMain.SelectedIndex = index;
             else
             {
-                frmDoiMatKhau.Activate();
-                frmDoiMatKhau.Show();
+                frmDoiMatKhau f = new frmDoiMatKhau();
+                TabPage p = new TabPage(f.Text);
+                p.Name = "tabPageDoiMatKhau";
+                f.TopLevel = false;
+                p.Controls.Add(f);
+                f.Dock = DockStyle.Fill;
+                f.FormBorderStyle = FormBorderStyle.None;
+                tabControlMain.TabPages.Add(p);
+                tabControlMain.SelectedTab=p;
+                f.Show();
             }
         }
     }
