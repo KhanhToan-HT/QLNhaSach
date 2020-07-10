@@ -59,7 +59,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnDangNhap.ImageOptions.Image")));
+            this.btnDangNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.ImageOptions.Image")));
             this.btnDangNhap.Location = new System.Drawing.Point(94, 140);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(100, 37);
@@ -84,7 +84,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtnThoat.ImageOptions.Image")));
+            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
             this.btnThoat.Location = new System.Drawing.Point(231, 140);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 37);
@@ -106,6 +106,7 @@
             this.KeyPreview = true;
             this.Name = "frmDangNhap";
             this.Text = "Đăng Nhập";
+            this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmDangNhap_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();

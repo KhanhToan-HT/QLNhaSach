@@ -79,15 +79,19 @@ namespace QLNhaSach
             frmDangNhap f = new frmDangNhap(this);
             f.StartPosition = FormStartPosition.CenterScreen;
             //f.Show();
-            f.WindowState = FormWindowState.Normal;
             f.ShowDialog();
+            f.WindowState = FormWindowState.Normal;
+
             //tabControl1.Hide();
         }
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //xu lý tất cả cac form con
-            tabControlMain.TabPages.Clear();
+            foreach (Form f in this.MdiChildren)
+            {
+                f.Close();
+            }
             frmMain_Load(sender, e);
         }
 
